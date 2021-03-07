@@ -1,0 +1,124 @@
+
+.top {
+    height: 100px;
+    width: 100%;
+    background-color: grey;
+    color: white;
+}
+.top h1 {
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.navbar {
+    font-size: 20px;
+}
+.navbar form {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.carousel-item img {
+    max-height: 490px;
+}
+
+
+.content {
+    display: flex;
+    justify-content: space-evenly;
+}
+.sidebar {
+    height: 375px;
+    width: 450px;
+    background-color: blue;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    color: gold;
+}
+.sidebar h3 {
+    margin: 20px 0px 20px 0px;
+}
+.sidebar ul li{
+    margin: 12px;
+    color: white;
+    list-style: none;
+    display: flex;
+}
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.game {
+    height: 450px;
+    width: 400px;
+    background-color: crimson;
+    display: flex;
+    justify-content: center;
+    vertical-align: top;
+    color: gold;
+}
+.game h3 {
+    display: flex;
+    justify-items: center;
+    align-content: center;
+    padding: 20px;
+    padding-left: 55px;
+}
+.game img {
+    width: 325px;
+    height: 350px;
+    padding: 10px;
+    padding-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    height: 375px;
+    width: 450px;
+    background-color: purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+}
+.box h3 {
+    display: flex;
+    justify-items: center;
+    align-content: center;
+    padding: 20px;
+
+}
+
+/* Media Queries */
+@media only screen and (min-width: 320px) and (max-width: 479px){
+    .content{
+        display: flex;
+        flex-direction: column;
+    } 
+    .carousel-item img {
+        height: 230px;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    .content{ 
+        display: flex;
+        flex-direction: column;
+    }
+    .carousel-item img {
+        height: 
+    }
+}
+
+@media only screen and (min-width: 768px) and (min-width:1024px){
+    .carousel-item img {
+        height: 490px;
+    }
+}
