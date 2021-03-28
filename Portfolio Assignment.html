@@ -5,13 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sports Nation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script>
+
+        var url = 'https://opentdb.com/api.php?amount=5&category=21&difficulty=easy&type=multiple'
+        $(document).ready(function() {
+            $.get(url, function(data) {
+                var html_str = "";
+                html_str += `<h3>Sports Quiz</h3>`
+                for(var i = 0; i < 5; i++) {
+                    html_str += `<h6>${data.results[i].question}</h6>`
+                    html_str += `<p>${data.results[i].incorrect_answers[2]}</p>`
+                    html_str += `<p>${data.results[i].incorrect_answers[1]}</p>`
+                    html_str += `<p>${data.results[i].correct_answer}</p>`
+                    html_str += `<p>${data.results[i].incorrect_answers[0]}</p>`
+                }
+                $("#footer").html(html_str);
+
+                $('.btn_toggle').click(function(){
+                    $('img').toggle()
+                })
+                $(".btn").click(function(){
+                    alert('The Answer is always the third option. :D')
+                })
+            },"json");
+        })
+    </script>
 </head>
 <body>
 
 <div class="container-fluid">
-
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand col-sm-8 col-md-4 col" href="#">Sports Nation</a>
@@ -75,38 +100,50 @@
     <!--3 Content Boxes-->
     <div class="content">
         <div class="sidebar col-sm-8 col-md-4 col">
-            <h3>Top Headlines</h3>
+            <h3>Top Stories</h3>
                 <ul>
-                    <li><a href="#">Brady wins seventh Super Bowl</a></li>
-                    <li><a href="#">March Madness Brackets!</a></li>
-                    <li><a href="#">Spurs DeRozan All-Star snub?</a></li>
-                    <li><a href="#">Steelers resign Roethlisberger</a></li>
-                    <li><a href="#">Will Deshaun play this season?</a></li>
-                    <li><a href="#">Bama rolls passed Buckeyes for title</a></li>
-                    <li><a href="#">Will Cowboys sign Dak?</a></li>
+                    <li><a href="#">March Madness Brackets wild outcomes</a></li>
+                    <li><a href="#">Who's on the move? NBA Trade Deadline soon</a></li>
+                    <li><a href="#">Opening Day coming in hot! MLB is back!</a></li>
+                    <li><a href="#">Patriots with big moves this offseason</a></li>
+                    <li><a href="#">Deshaun Watson troubles continue</a></li>
+                    <li><a href="#">Run it back Bucs! Bucs resigning majority</a></li>
+                    <li><a href="#">Cowboys resign Dak!</a></li>
                 </ul>
+                <button type="button" class="btn_toggle btn-danger">Click Me!</button>
         </div><!--sidebar-->
         <div class="game col-sm-8 col-md-4 col">
-            <div class="row c">
+            <div class="row">
                 <h3>Athlete of the Week</h3>
                 <img src="img/athlete-Demar.png" alt="DeRozan">
             </div>
         </div> <!--game-->
         <div class="box col-sm-8 col-md-4 col">
             <h3>Subscribe</h3>
-            <div class="col-sm-6 col">
-                <button type="button" class="btn btn-primary">Sign Up</button>
-                <button type="button" class="btn btn-secondary">Sign In</button>
-            </div>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div><!--box-->
     </div> <!--content-->
+
+    <div id="footer">
+    
+    </div>
+
+    <div class="answer_btns">
+        <button type="button" class="btn btn-info">Click for Answers</button>
+    </div>
 </div> <!--Container-->
 
 
-
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
